@@ -13,6 +13,7 @@ const getSolution = (exerciseId) => axios.get(`${host}/solution/${exerciseId}`);
 
 function CodeTextArea({ exerciseId }) {
   const [code, setCode] = useState(undefined);
+  const [result, setResult] = useState(undefined);
 
   useEffect(() => {
     getExercise(exerciseId).then((res) => setCode(res.data.content));
@@ -29,14 +30,25 @@ function CodeTextArea({ exerciseId }) {
         extensions={[javascript()]}
         theme="light"
         editable
-        syntaxHighlighting
         onChange={setCode}
       />
+      {result && result.error === null && (
+        <h3>🎉 Congratulations! Your answer is correct 🎉</h3>
+      )}
+      {result && result.error && result.error.code === 1 && (
+        <>
+          <h3>Unfortunately your unswer is wrong, here's why</h3>
+          <CodeMirror value={result.stdout} height="200px" theme="light" />
+        </>
+      )}
+
       <br />
       <button
         style={{ width: "100%", marginBottom: "10px" }}
         onClick={() => {
-          verifySolution(exerciseId, code).then(console.log);
+          verifySolution(exerciseId, code).then((res) =>
+            setResult(res.data.result)
+          );
         }}
       >
         Verify my solution
