@@ -1,47 +1,57 @@
 ---
 sidebar_position: 1
+sidebar_label: Introduction
 ---
 
-# Tutorial Intro
+# Node.js Test Runner Workshop
 
-Let's discover **Docusaurus in less than 5 minutes**.
+---
 
-## Getting Started
+# What’s a Test Runner?
 
-Get started by **creating a new site**.
+A test runner is a tool that automates the process of executing tests in the development of software, ensuring that code changes do not break existing functionality.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+It allows developers to run tests across different environments and conditions systematically.
 
-### What you'll need
+Test runners can be part of a larger **test framework** or standalone tools.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+---
 
-## Generate a new site
+# Usual features
 
-Generate a new Docusaurus site using the **classic template**.
+- **Test Discovery:** Automatically detecting and running all test cases within specified directories or files.
+- **Test Organization:** Allowing tests to be grouped, categorized, or tagged for selective execution.
+- **Result Reporting:** Providing detailed reports on test outcomes, including successes, failures, and exceptions.
+- **Integration Support:** Offering compatibility with Continuous Integration (CI) systems for automated testing within development pipelines.
 
-The classic template will automatically be added to your project after you run the command:
+---
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+# Poplular examples
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- Test runners are tools designed to execute your test suites and report the results. They are essential in automating the testing process.
+- Python: `pytest` is widely appreciated for its powerful features and simple syntax, making it suitable for both simple and complex projects.
+- Java: `JUnit` is the de facto standard for unit testing in Java development, known for its rich annotation-based configuration.
+- JavaScript: `Jest` is a flexible test framework with a focus on asynchronous testing, offering rich features for running tests in Node.js and the browser.
+- .NET: `NUnit` is a popular choice for .NET developers, similar to JUnit but with a focus on the .NET framework.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Choosing the right test runner involves considering the programming language, project complexity, and specific requirements.
 
-## Start your site
+---
 
-Run the development server:
+# Test runner VS Testing Framework
 
-```bash
-cd my-website
-npm run start
-```
+- Test Runner: A tool that executes tests and reports the results. It is responsible for loading your test code, running it, and then providing feedback.
+- Testing Framework: Provides the structure and guidelines for writing tests. It includes assertions, test cases, and test suites, but doesn't run tests by itself.
+- The main difference lies in their roles; while a testing framework defines how to write tests, a test runner actually executes them.
+- Some tools, like `pytest` and `Jest`, combine both functionalities, acting as both test runners and frameworks.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+---
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+# Why Node.js decided to ship its own test runner?
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Integration: Built-in support for testing within the Node.js ecosystem simplifies setup and configuration for developers.
+- Standardization: Aims to provide a standard testing solution that leverages Node.js features and best practices.
+- Performance: Optimized for the Node.js environment, it can offer better performance and efficiency for JavaScript projects.
+- Features: Tailored to meet the specific needs of Node.js developers, incorporating feedback and evolving with the platform.
+
+---
