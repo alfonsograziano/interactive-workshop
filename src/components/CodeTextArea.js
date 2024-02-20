@@ -6,7 +6,7 @@ import { javascript } from "@codemirror/lang-javascript";
 const host = "http://localhost:5000";
 
 const verifySolution = (exerciseId, solution) =>
-  axios.post(`${host}/exercise/${exerciseId}`, { solution });
+  axios.post(`${host}/verify/${exerciseId}`, { solution });
 const getExercise = (exerciseId) => axios.get(`${host}/exercise/${exerciseId}`);
 
 const getSolution = (exerciseId) => axios.get(`${host}/solution/${exerciseId}`);
@@ -33,7 +33,12 @@ function CodeTextArea({ exerciseId }) {
         onChange={setCode}
       />
       <br />
-      <button style={{ width: "100%", marginBottom: "10px" }}>
+      <button
+        style={{ width: "100%", marginBottom: "10px" }}
+        onClick={() => {
+          verifySolution(exerciseId, code).then(console.log);
+        }}
+      >
         Verify my solution
       </button>
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
