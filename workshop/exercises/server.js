@@ -9,9 +9,7 @@ const fastify = Fastify({
   logger: true,
 });
 
-await fastify.register(cors, {
-  // put your options here
-});
+await fastify.register(cors, {});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
